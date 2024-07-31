@@ -1,38 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Jersey+15&display=swap');
+
+@font-face {
+  font-family: "NTBrickSans";
+  src: local("NTBrickSans"),
+    url("./fonts/NTBrickSans.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cyrano";
+  src: local("Cyrano"),
+    url("./fonts/CyranoDemo.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Jamday";
+  src: local("Jamday"),
+    url("./fonts/Jamday.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "xoxo";
+  src: local("xoxo"),
+    url("./fonts/xoxo.otf") format("opentype");
+  /* font-weight: normal; */
+}
+
+@font-face {
+  font-family: "Kharkiv Tone";
+  src: local("Kharkiv Tone"),
+    url("./fonts/Kharkiv Tone.ttf") format("truetype");
+  /* font-weight: normal; */
+}
+
+@font-face {
+  font-family: "Fervojo";
+  src: local("Fervojo-Regular"),
+    url("./fonts/Fervojo-Regular.otf") format("opentype");
+  /* font-weight: normal; */
+}
+
+* {
+  font-family: "Fervojo", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color:#393939;
+  background-image: url('./assets/transparent-dust2.png');
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h1 {
+  font-family: "Kharkiv Tone";
   color: white;
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.TodoWrapper {
+  /* background: rgb(211, 44, 175); */
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  width: 50rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.TodoForm {
+  /* width: 63.5%; */
+  margin-bottom: 1rem;
+  /* border: 1px solid rgb(215, 112, 112); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+@keyframes blink {
+  0%, 100% {
+      background-color: transparent;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+      background-color: white;
   }
 }
+
+.cursor {
+  background-color: white;
+  width: 0.25rem;
+  height: 4rem;
+  animation: blink 1s infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.todo-input {
+  outline: none;
+  background: transparent;
+  border: none;
+  /* padding: 0.5rem 1rem; */
+  /* width: 50%; */
+  color: white;
+  font-size: 2rem;
+  /* border: 1px solid blue; */
+  width: 90%;
+}
+
+
+
+.edit-todo-input{
+  outline: none;
+  background: transparent;
+  /* border: 1px solid transparent; */
+  border: none;
+  color: white;
+  padding: 0;
+  font-size: 1rem;
+  width: 100%;
+  /* border-bottom: 0.0625rem solid black;
+  color: white;
+  width: 320px;
+  font-size: 1rem;
+  padding: 0.2rem; */
+}
+
+.todo-input::placeholder {
+  color: #dedede86;
+}
+
+/* .todo-btn {
+  background: transparent;
+  color: #b83333;
+  border: none;
+  border: 1px solid blue;
+  cursor: pointer;
+  font-family: "Kharkiv Tone";
+} */
+
+.todo-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+}
+
+.todo-btn img {
+  /* height: 70%;
+  width: 70%; */
+  height: 4rem;
+  width: 4rem;
+}
+
+
+.edit-todo-btn{
+  background-color: transparent;
+  color: #ffffff;
+  padding: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.Todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background:  rgb(239, 229, 190); */
+  color: white;
+  padding: 1.2rem 0;
+  /* border-radius: 5px; */
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+}
+
+/* .Edit-Todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0.8rem 0.5rem 0.8rem;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+} */
+
+.fa-trash {
+  margin-left: 0.75rem;
+}
+
+.incompleted {
+  color: #000000;
+  cursor: pointer;
+}
+
+.completed {
+  color: #7d7d7d;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  color: #f4ff57;
+}
+
+.icon{
+  color: rgb(82, 31, 145);
+}
+
+.todo-action {
+  color: white;
+  display: flex;
+  gap: 1rem;
+}
+
+.todo-action > * {
+  cursor: pointer;
+}
+
+
+
+@media  (max-width: 768px) {
+
+.TodoWrapper {
+  width: 100%;
+  /* border: 1px solid white; */
+}
+
+.todo-input {
+  font-size: 1.5rem;
+}
+
+.todo-btn img {
+  height: 3rem;
+  width: 3rem;
+}
+
+}
+ 
